@@ -47,7 +47,7 @@ public class CourseController {
 	
 	@PostMapping
 	public ResponseEntity<Course> createCourse(@RequestBody Course course) {
-		if(course.getCode().length>4) {
+		if(course.getCode().length<=4) {
 			this.courseService.save(course);
 			return ResponseEntity.created(null).build();
 		}else {
